@@ -17,7 +17,7 @@ export const useLibraryStore = create<LibraryState>()((set) => ({
 	// Action to fetch library from an API
     fetchLibrary: async () => {
         try {
-            const response = await axios.get("https://brij-public.s3.us-west-001.backblazeb2.com/library.json");
+            const response = await axios.get("https://naam-sankirtan.girigovardhan.com/v1.0.0/library");
 	  		const library: TrackWithPlaylist[] = response.data;
             set({ tracks: library });
         } catch (error) {
