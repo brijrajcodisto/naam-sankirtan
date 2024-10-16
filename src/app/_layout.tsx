@@ -4,10 +4,11 @@ import { useLogTrackPlayerState } from '@/hooks/useLogTrackPlayerState'
 import { useSetupTrackPlayer } from '@/hooks/useSetupTrackPlayer'
 import { SplashScreen, Stack } from 'expo-router'
 import { StatusBar } from 'expo-status-bar'
-import { useCallback } from 'react'
+import { useCallback, useEffect } from 'react'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
-import { SafeAreaProvider } from 'react-native-safe-area-context'
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
 import TrackPlayer from 'react-native-track-player'
+import { useLibraryStore } from '@/store/library'
 
 SplashScreen.preventAutoHideAsync()
 
@@ -22,9 +23,16 @@ const App = () => {
 		onLoad: handleTrackPlayerLoaded,
 	})
 
+	const libraryStore = useLibraryStore();
+	const {fetchLibrary} = libraryStore;
+	useEffect(() => {
+		fetchLibrary()
+	})
+	
 	useLogTrackPlayerState()
 
 	return (
+
 		<SafeAreaProvider>
 			<GestureHandlerRootView style={{ flex: 1 }}>
 				<RootNavigation />

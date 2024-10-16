@@ -1,17 +1,29 @@
-import library from '@/assets/data/library.json'
 import { unknownTrackImageUri } from '@/constants/images'
 import { Artist, Playlist, TrackWithPlaylist } from '@/helpers/types'
+// import library from 'assets/data/library.json'
+import axios from 'axios'
 import { Track } from 'react-native-track-player'
 import { create } from 'zustand'
 
 interface LibraryState {
-	tracks: TrackWithPlaylist[]
+	tracks: TrackWithPlaylist[],
+	fetchLibrary: any,
 	toggleTrackFavorite: (track: Track) => void
 	addToPlaylist: (track: Track, playlistName: string) => void
 }
-
+  
 export const useLibraryStore = create<LibraryState>()((set) => ({
-	tracks: library,
+	tracks: [],
+	// Action to fetch library from an API
+    fetchLibrary: async () => {
+        try {
+            const response = await axios.get("https://naam-sankirtan.girigovardhan.com/v1.0.0/library");
+	  		const library: TrackWithPlaylist[] = response.data;
+            set({ tracks: library });
+        } catch (error) {
+            console.error('Failed to fetch library:', error);
+        }
+    },
 	toggleTrackFavorite: (track) =>
 		set((state) => ({
 			tracks: state.tracks.map((currentTrack) => {

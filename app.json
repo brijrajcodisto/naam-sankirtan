@@ -1,12 +1,12 @@
 {
   "expo": {
-    "name": "music-player",
-    "slug": "music-player",
+    "name": "naam-sankirtan",
+    "slug": "naam-sankirtan",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "dark",
-    "scheme": "music-player",
+    "scheme": "naam-sankirtan",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -17,7 +17,7 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.music.player",
+      "bundleIdentifier": "com.girigovardhan.naam_sankirtan",
       "infoPlist": {
         "UIBackgroundModes": [
           "audio"
@@ -29,7 +29,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#000"
       },
-      "package": "com.music.player"
+      "package": "com.girigovardhan.naam_sankirtan"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -40,6 +40,11 @@
     "experiments": {
       "typedRoutes": true,
       "tsconfigPaths": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "1d8416b5-bdd0-4793-88e8-a5e4d62635d7"
+      }
     }
   }
 }

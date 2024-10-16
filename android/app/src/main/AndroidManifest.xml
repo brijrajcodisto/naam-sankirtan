@@ -26,7 +26,7 @@
         <category android:name="android.intent.category.DEFAULT"/>
         <category android:name="android.intent.category.BROWSABLE"/>
         <data android:scheme="music-player"/>
-        <data android:scheme="com.music.player"/>
+        <data android:scheme="com.girigovardhan.naam_sankirtan"/>
         <data android:scheme="exp+music-player"/>
       </intent-filter>
     </activity>

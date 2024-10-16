@@ -83,9 +83,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace 'com.music.player'
+    namespace 'com.girigovardhan.naam_sankirtan'
     defaultConfig {
-        applicationId 'com.music.player'
+        applicationId 'com.girigovardhan.naam_sankirtan'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
