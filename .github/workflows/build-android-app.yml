@@ -1,0 +1,48 @@
+name: "Build Android app"
+
+on:
+  push:
+    branches: ['main']
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Install Java
+        uses: actions/setup-java@v2
+        with:
+          java-version: 17
+          distribution: "temurin"
+          # cache: 'gradle'
+      # - name: Setup Gradle
+      #   uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
+
+      # - name: Validate Gradle wrapper
+      #   uses: gradle/wrapper-validation-action@v1
+
+      - name: Setup Node  
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Run npm Install
+        run: |
+             npm i -g corepack
+             npm install
+          
+      - name: Build application
+        run: |
+             cd android
+             chmod +x ./gradlew
+             ./gradlew assembleRelease
+
+      - name: Upload application
+        uses: actions/upload-artifact@v4
+        with:
+          name: app
+          path: android/app/build/outputs/apk/release/app-release.apk
+          retention-days: 3
