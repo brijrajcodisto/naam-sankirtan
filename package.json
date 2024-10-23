@@ -20,6 +20,7 @@
 		"expo-status-bar": "~1.11.1",
 		"leo-query": "^0.0.1-alpha.13",
 		"react": "18.2.0",
+		"react-dom": "18.2.0",
 		"react-native": "0.73.6",
 		"react-native-awesome-slider": "^2.5.1",
 		"react-native-fast-image": "^8.6.3",
